@@ -1,20 +1,17 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
-import BookPile from './BookPile';
-import AddBook from './AddBook';
+import Book from './Book';
 
-function BookStorage({ books }) {
+const BookStorage = (props) => {
+  const { books } = props;
+  const { deleteBook } = props;
+
   return (
-    <div className="container">
-      <BookPile books={books} />
-      <AddBook />
+    <div>
+      {books.map((book) => (
+        <Book key={book.item_id} book={book} deleteBook={deleteBook} />
+      ))}
     </div>
   );
-}
-
-BookStorage.propTypes = {
-  books: PropTypes.arrayOf.isRequired,
 };
 
 export default BookStorage;

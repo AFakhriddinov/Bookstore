@@ -1,33 +1,24 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-function Navigation() {
+const Navigation = () => {
+  const myLinks = [
+    { id: 1, text: 'Home', path: '/' },
+    { id: 2, text: 'Categories', path: '/categories' },
+  ];
+
   return (
     <header>
-      <div className="container flex">
-        <h1>
-          <Link to="/" className="logo">
-            Bookstore CMS
-          </Link>
-        </h1>
-        <nav>
-          <ul className="flex">
-            <li>
-              <Link to="/" className="my-link">
-                Books
-              </Link>
+      <nav>
+        <ul>
+          {myLinks.map((link) => (
+            <li key={link.id}>
+              <NavLink to={link.path}>{link.text}</NavLink>
             </li>
-            <li>
-              <Link to="/categories" className="my-link">
-                Categories
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
-}
+};
 
 export default Navigation;

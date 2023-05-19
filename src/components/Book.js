@@ -1,23 +1,24 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
 
-function Book({ book }) {
+const Book = (props) => {
+  const { book, deleteBook } = props;
   return (
-    <li>
-      <h3>{book.category}</h3>
-      <h2>{book.name}</h2>
-      <p>{book.author}</p>
-
-      <div>
-        <button type="button">Remove</button>
-      </div>
-    </li>
+    <section>
+      <h2>{book.title}</h2>
+      <h3>{book.author}</h3>
+      <p>{book.category}</p>
+      <ul>
+        <li>
+          <button type="button" onClick={() => deleteBook(book.item_id)}>
+            Remove
+          </button>
+        </li>
+        <li>
+          <button type="button">Edit</button>
+        </li>
+      </ul>
+    </section>
   );
-}
-
-Book.propTypes = {
-  book: PropTypes.arrayOf.isRequired,
 };
 
 export default Book;
