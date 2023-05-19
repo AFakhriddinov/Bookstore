@@ -6,7 +6,6 @@ function Book({ book }) {
   return (
     <li>
       <h3>{book.category}</h3>
-
       <h2>{book.name}</h2>
       <p>{book.author}</p>
 
