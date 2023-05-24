@@ -23,7 +23,6 @@ const ShowBooks = () => {
       category: 'Drama',
     },
   ]);
-
   const deleteBook = (id) => {
     setBooks([...books.filter((book) => book.item_id !== id)]);
   };
