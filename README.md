@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math masters <a name="about-project"></a>
+# 📖 Bookstore <a name="about-project"></a>
 
 This is a bookstore website built with React and Redux. Users can add, edit and delete books
 
@@ -56,27 +56,12 @@ This is a bookstore website built with React and Redux. Users can add, edit and 
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="#">No database for time being</a></li>
-  </ul>
-</details>
-
 ### Key Features <a name="key-features"></a>
 
 - Basic set up
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-N/A
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -103,7 +88,7 @@ cd Bookstore
 
 ### Install
 
-N/A
+npm install
 
 ### Usage
 
@@ -111,7 +96,7 @@ Use this project in the browsers of desktops
 
 ### Run tests
 
-N/A
+npm run test
 
 ### Deployment
 
