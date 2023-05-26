@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math masters <a name="about-project"></a>
+# 📖 Bookstore <a name="about-project"></a>
 
 This is a bookstore website built with React and Redux. Users can add, edit and delete books
 
