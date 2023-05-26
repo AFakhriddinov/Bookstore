@@ -56,18 +56,6 @@ This is a bookstore website built with React and Redux. Users can add, edit and 
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-  
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="#">No database for time being</a></li>
-  </ul>
-</details>
-
 ### Key Features <a name="key-features"></a>
 
 - Basic set up
