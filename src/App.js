@@ -4,7 +4,7 @@ import React from 'react';
 import BookStorage from './components/BookStorage';
 import Categories from './components/Categories';
 import Navigation from './components/Navigation';
-import Book from './components/Book';
+// import Book from './components/Book';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<BookStorage />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
-      <Book />
+      {/* <Book /> */}
     </Router>
   );
 }
