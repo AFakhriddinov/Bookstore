@@ -1,62 +1,34 @@
-/* eslint-disable camelcase */
-import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect } from 'react';
-import { removeBook, fetchBooks } from '../redux/books/booksSlice';
-// import Book from './Book';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import Book from './Book';
+import Form from './Form';
+import { getBook } from '../redux/books/bookSlice';
 
-function BookStorage() {
-  const { books, loading, error } = useSelector((state) => state.books);
+const BookStorage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBooks());
+    dispatch(getBook());
   }, [dispatch]);
-
-  const loadingCase = () => <div>Loading...</div>;
-  const errorCase = () => <div>Connection problem...</div>;
-
-  const displayBooks = () => books.map((book) => {
-    const { item_id, title, author } = book;
-    return (
-      <section key={item_id}>
-        <div>
-          <div>
-            <div>
-              <h1>
-                Title:
-                {title}
-              </h1>
-              <h2>
-                Author:
-                {author}
-              </h2>
-            </div>
-            <div>
-              <button type="button">Comment</button>
-              <button
-                type="button"
-                onClick={() => dispatch(removeBook(item_id))}
-              >
-                Remove
-              </button>
-              <button type="button">Edit</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  });
-
-  const displayContent = () => {
-    if (loading) {
-      return loadingCase();
-    }
-    if (error) {
-      return errorCase();
-    }
-    return displayBooks();
-  };
-  return <div>{displayContent()}</div>;
-}
-
+  const { books } = useSelector((state) => state.books);
+  return (
+    <div className="books">
+      <ul className="booklist">
+        {books
+          && books.map((book) => (
+            <li className="item" key={book.item_id}>
+              <Book
+                title={book.title}
+                author={book.author}
+                id={book.item_id}
+                category={book.category}
+              />
+            </li>
+          ))}
+        <hr className="hr" />
+      </ul>
+      <Form />
+    </div>
+  );
+};
 export default BookStorage;
