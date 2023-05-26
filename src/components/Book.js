@@ -3,51 +3,57 @@ import { useState } from 'react';
 import { addBook } from '../redux/books/booksSlice';
 
 export default function Book() {
+  const initialState = {
+    title: '',
+    author: '',
+    category: '',
+  };
+
+  const [data, setData] = useState(initialState);
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (title && author && category) {
-      dispatch(
-        addBook({
-          id: Date.now(),
-          title,
-          author,
-          category,
-        }),
-      );
-    }
-    setTitle('');
-    setAuthor('');
-    setCategory('');
+    const newBook = {
+      ...data,
+      item_id: Date.now(),
+    };
+    dispatch(addBook(newBook));
+    setData(initialState);
   };
 
   return (
     <div>
-      <form className="f" onSubmit={handleSubmit}>
+      <form className="f">
         <input
           type="text"
           placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
+          onChange={handleChange}
+          // value={data.title}
         />
         <input
           type="text"
           placeholder="Author"
-          onChange={(e) => setAuthor(e.target.value)}
-          value={author}
+          onChange={handleChange}
+          // value={data.author}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Category"
-          onChange={(e) => setCategory(e.target.value)}
-          value={category}
-        />
-        <button type="submit">Submit</button>
+          onChange={handleChange}
+          value={data.category}
+        /> */}
+        <button type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );

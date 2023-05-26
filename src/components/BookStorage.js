@@ -1,35 +1,62 @@
+/* eslint-disable camelcase */
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
-import Book from './Book';
+import React, { useEffect } from 'react';
+import { removeBook, fetchBooks } from '../redux/books/booksSlice';
+// import Book from './Book';
 
 function BookStorage() {
+  const { books, loading, error } = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  const bookItems = useSelector((state) => state.books.bookItems);
 
-  return (
-    <section className="cart">
-      <div>
-        {bookItems.map((item) => (
-          <div key={item.id}>
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  const loadingCase = () => <div>Loading...</div>;
+  const errorCase = () => <div>Connection problem...</div>;
+
+  const displayBooks = () => books.map((book) => {
+    const { item_id, title, author } = book;
+    return (
+      <section key={item_id}>
+        <div>
+          <div>
             <div>
-              <h3>{item.title}</h3>
-              <h4>{item.author}</h4>
-              <h4>{item.category}</h4>
+              <h1>
+                Title:
+                {title}
+              </h1>
+              <h2>
+                Author:
+                {author}
+              </h2>
             </div>
             <div>
+              <button type="button">Comment</button>
               <button
                 type="button"
-                onClick={() => dispatch(removeBook(item.id))}
+                onClick={() => dispatch(removeBook(item_id))}
               >
                 Remove
               </button>
+              <button type="button">Edit</button>
             </div>
           </div>
-        ))}
-      </div>
-      <Book />
-    </section>
-  );
+        </div>
+      </section>
+    );
+  });
+
+  const displayContent = () => {
+    if (loading) {
+      return loadingCase();
+    }
+    if (error) {
+      return errorCase();
+    }
+    return displayBooks();
+  };
+  return <div>{displayContent()}</div>;
 }
 
 export default BookStorage;
