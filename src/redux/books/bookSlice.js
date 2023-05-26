@@ -9,7 +9,7 @@ const initialState = {
 
 export const getBook = createAsyncThunk('book/getBook', async () => {
   const response = await fetch(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/[OQo0tm9K5JZRXbAJo9Th]/books',
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OQo0tm9K5JZRXbAJo9Th/books',
   );
   const data = await response.json();
   return data;
@@ -49,7 +49,7 @@ const bookSlice = createSlice({
   reducers: {
     postBook: (state, action) => {
       const book = {
-        item_id: `item${state.books.length + 1}`,
+        item_id: Date.now(),
         title: action.payload.title,
         author: action.payload.author,
         category: action.payload.category,
