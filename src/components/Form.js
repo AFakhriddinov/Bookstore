@@ -17,12 +17,14 @@ const Form = () => {
         setTitle('');
         setCategory('');
       }}
-      className="form"
+      className="book-form"
     >
-      <h2>Add a book</h2>
-      <div>
+      <h2 className="book-form-title">ADD NEW BOOK</h2>
+      <br />
+      <div className="book-inputs">
         <input
           placeholder="Title"
+          className="book-input"
           name="title"
           type="text"
           value={title}
@@ -31,6 +33,7 @@ const Form = () => {
 
         <input
           placeholder="Author"
+          className="book-input"
           name="author"
           type="text"
           value={author}
@@ -39,13 +42,14 @@ const Form = () => {
 
         <input
           placeholder="Category"
+          className="book-input"
           name="category"
           type="text"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         />
-        <button type="submit" className="form-button">
-          Add a book
+        <button type="submit" className="submit-button">
+          ADD BOOK
         </button>
       </div>
     </form>

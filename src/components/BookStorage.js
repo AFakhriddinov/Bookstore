@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Book from './Book';
 import Form from './Form';
 import { getBook } from '../redux/books/bookSlice';
+import '../index.css';
 
 const BookStorage = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ const BookStorage = () => {
   }, [dispatch]);
   const { books } = useSelector((state) => state.books);
   return (
-    <div className="books">
-      <ul className="booklist">
+    <div className="book-storage">
+      <ul className="books">
         {books
           && books.map((book) => (
-            <li className="item" key={book.item_id}>
+            <li key={book.item_id}>
               <Book
                 title={book.title}
                 author={book.author}

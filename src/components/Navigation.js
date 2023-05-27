@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import '../index.css';
+import { MdPerson } from 'react-icons/md';
 
 const Navigation = () => {
   const myLinks = [
@@ -8,14 +10,20 @@ const Navigation = () => {
 
   return (
     <header>
-      <nav>
-        <ul>
+      <nav className="nav">
+        <h1 className="title">Bookstore CMS</h1>
+        <ul className="ul">
           {myLinks.map((link) => (
             <li key={link.id}>
-              <NavLink to={link.path}>{link.text}</NavLink>
+              <NavLink className="ul-li" to={link.path}>
+                {link.text}
+              </NavLink>
             </li>
           ))}
         </ul>
+        <div>
+          <MdPerson className="person" />
+        </div>
       </nav>
     </header>
   );
