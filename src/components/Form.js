@@ -19,7 +19,8 @@ const Form = () => {
       }}
       className="book-form"
     >
-      <h2 className="book-form-title">Add a book</h2>
+      <h2 className="book-form-title">ADD NEW BOOK</h2>
+      <br />
       <div className="book-inputs">
         <input
           placeholder="Title"
@@ -48,7 +49,7 @@ const Form = () => {
           onChange={(e) => setCategory(e.target.value)}
         />
         <button type="submit" className="submit-button">
-          Add a book
+          ADD BOOK
         </button>
       </div>
     </form>

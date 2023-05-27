@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar } from "react-circular-progressbar"; //eslint-disable-line
 import { removeBook, remove } from '../redux/books/bookSlice';
-import 'react-circular-progressbar/dist/styles.css';
+import "react-circular-progressbar/dist/styles.css"; //eslint-disable-line
 import '../index.css';
 
 const Book = ({
@@ -18,8 +18,12 @@ const Book = ({
         <h2 className="book-title">{title}</h2>
         <p className="book-author">{author}</p>
         <div>
+          <button className="btn-update" type="button" title="Comment">
+            Comment
+          </button>
+          <span className="separator">|</span>
           <button
-            className="remove-btn"
+            className="btn-update"
             type="button"
             onClick={() => {
               dispatch(removeBook({ id }));
@@ -29,11 +33,7 @@ const Book = ({
             Remove
           </button>
           <span className="separator">|</span>
-          <button className="btn-action" type="button" title="Comment">
-            Comment
-          </button>
-          <span className="separator">|</span>
-          <button className="btn-action" type="button" title="Edit">
+          <button className="btn-update" type="button" title="Edit">
             Edit
           </button>
         </div>

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import '../index.css';
-// import { Fa500Px } from 'react-icons/fa';
+import { MdPerson } from 'react-icons/md';
 
 const Navigation = () => {
   const myLinks = [
@@ -15,11 +15,15 @@ const Navigation = () => {
         <ul className="ul">
           {myLinks.map((link) => (
             <li key={link.id}>
-              <NavLink to={link.path}>{link.text}</NavLink>
+              <NavLink className="ul-li" to={link.path}>
+                {link.text}
+              </NavLink>
             </li>
           ))}
         </ul>
-        <div className="person">{/* <Fa500Px /> */}</div>
+        <div>
+          <MdPerson className="person" />
+        </div>
       </nav>
     </header>
   );

@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import BookStorage from "./components/BookStorage";
-import Categories from "./components/Categories";
-import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import BookStorage from './components/BookStorage';
+import Categories from './components/Categories';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
